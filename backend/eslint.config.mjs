@@ -1,5 +1,5 @@
 import pluginJs from "@eslint/js";
-import eslintPlugginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import eslintConfigPrettier from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -20,5 +20,5 @@ export default [
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  eslintPlugginPrettierRecommended,
+  eslintConfigPrettier,
 ];
