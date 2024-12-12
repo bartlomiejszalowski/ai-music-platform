@@ -13,9 +13,8 @@ export const protectRoute = async (
   next: NextFunction
 ) => {
   if (!req.auth.userId) {
-    return res
-      .status(401)
-      .json({ message: "Unauthorized - you must be logged in" });
+    res.status(401).json({ message: "Unauthorized - you must be logged in" });
+    return;
   }
 
   next();
@@ -33,13 +32,13 @@ export const requireAdmin = async (
     );
 
     if (!isAdmin) {
-      return res
-        .status(403)
-        .json({ message: "Unauthorized - you must be an admin" });
+      res.status(403).json({ message: "Unauthorized - you must be an admin" });
+      return;
     }
 
     next();
   } catch (error) {
-    return res.status(500).json({ message: "Internal server error", error });
+    res.status(500).json({ message: "Internal server error", error });
+    return;
   }
 };
