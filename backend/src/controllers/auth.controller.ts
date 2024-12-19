@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { User } from "models/user.model";
+
+import { User } from "../models/user.model.ts";
 
 export const authCallback = async (
   req: Request,
